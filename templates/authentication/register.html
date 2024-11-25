@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>Mindease | Register</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Rubik:300,300i,400,400i,500,500i,700"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/mindease-assets.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="screen">
+  </head>
+
+  <body>
+    <!-- Container -->
+    <div id="container">
+      <!-- Header -->
+      <div class="navbar-header auth-header">
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'images/mindease_logo.png' %}" alt="Mindease Logo" />
+        </a>
+      </div>
+
+      <!-- Auth Section -->
+      <section id="auth-section">
+        <div class="container">
+          <div class="auth-box">
+            <div class="row">
+              <div class="col-md-6">
+                <!-- Title -->
+                <div class="title-section">
+                  <h1>Create an account</h1>
+                  <p>We are here for you.</p>
+                </div>
+
+                {% include 'partials/_messages.html' %}
+
+                <!-- Form -->
+                <form class="auth-form" action="{% url 'register' %}" method="post">
+                  {% csrf_token %}
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input
+                        type="text"
+                        name="first_name"
+                        id="first_name"
+                        placeholder="First Name*"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input
+                        type="text"
+                        name="last_name"
+                        id="last_name"
+                        placeholder="Last Name*"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input
+                        type="text"
+                        name="phone_number"
+                        id="phone_number"
+                        placeholder="Phone No*"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        placeholder="Email*"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input
+                        type="text"
+                        name="password"
+                        id="password"
+                        placeholder="Password*"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Link -->
+                  <div style="text-align: right; margin-top: 10px;">
+                    <a href="{% url 'login' %}">Already have an account?</a>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <input
+                    type="submit"
+                    name="submit-auth"
+                    id="submit-auth"
+                    value="Submit"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End Container -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js/medoc-plugins.min.js' %}"></script>
+    <script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+    <script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script src="{% static 'js/jquery.appear.js' %}"></script>
+    <script src="{% static 'js/jquery.countTo.js' %}"></script>
+    <script src="{% static 'js/waypoint.min.js' %}"></script>
+    <script src="{% static 'js/gmap3.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
